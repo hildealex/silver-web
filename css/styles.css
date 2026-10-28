@@ -658,7 +658,7 @@ pre,
    6. SECCIÓN: QUIÉNES SOMOS (Nuestra Identidad & Propósito)
    -------------------------------------------------------------------------- */
 .about-section {
-  padding: 6rem 0;
+  padding: 4.25rem 0;
   background-color: var(--bg-secondary);
   border-top: 1px solid var(--border-subtle);
   border-bottom: 1px solid var(--border-subtle);
@@ -667,8 +667,8 @@ pre,
 
 .section-header {
   text-align: center;
-  max-width: 760px;
-  margin: 0 auto 3.5rem auto;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
 }
 
 .section-tag {
@@ -793,21 +793,21 @@ pre,
    7. SECCIÓN: QUÉ HACEMOS (Servicios & Capacidades de Ingeniería)
    -------------------------------------------------------------------------- */
 .what-we-do-section {
-  padding: 6rem 0;
+  padding: 4.5rem 0;
   position: relative;
 }
 
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
+  gap: 1.4rem;
 }
 
 .service-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 2.25rem 1.85rem;
+  padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-smooth);
@@ -2342,9 +2342,29 @@ pre,
   }
 
   #navCtaContact {
-    padding: 0.5rem 0.85rem;
-    font-size: 0.82rem;
-    gap: 0.35rem;
+    padding: 0.52rem 1rem;
+    font-size: 0.84rem;
+    font-weight: 700;
+    gap: 0.42rem;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
+    border: 1px solid rgba(147, 197, 253, 0.55);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.55), 0 4px 12px rgba(37, 99, 235, 0.4);
+    animation: mobileCtaGlow 2.4s ease-in-out infinite;
+    white-space: nowrap;
+  }
+
+  #navCtaContact .nav-cta-text {
+    display: inline !important;
+  }
+
+  @keyframes mobileCtaGlow {
+    0%, 100% {
+      box-shadow: 0 0 14px rgba(59, 130, 246, 0.45), 0 4px 12px rgba(37, 99, 235, 0.35);
+    }
+    50% {
+      box-shadow: 0 0 24px rgba(96, 165, 250, 0.8), 0 4px 16px rgba(37, 99, 235, 0.6);
+    }
   }
 
   /* Botón hamburguesa móvil */
@@ -2509,34 +2529,38 @@ pre,
   }
 
   .brand-logo-img {
-    height: 35px;
-    max-height: 35px;
-    max-width: 130px;
+    height: 34px;
+    max-height: 34px;
+    max-width: 120px;
   }
 
-  /* En pantallas muy angostas, el botón de contacto se convierte en un botón cuadrado con su ícono */
+  /* En celulares resaltamos el botón Contáctanos con su texto completo e iluminación */
   #navCtaContact {
-    width: 38px;
+    width: auto;
     height: 38px;
-    padding: 0;
+    padding: 0 0.95rem;
     justify-content: center;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
   }
 
   #navCtaContact .nav-cta-text {
-    display: none;
+    display: inline !important;
+  }
+
+  .about-section,
+  .what-we-do-section,
+  .how-we-do-it-section,
+  .credentials-section,
+  .solutions-section,
+  .contact-section {
+    padding: 3rem 0;
   }
 
   .hero-crest-img {
     max-width: 230px;
-  }
-
-  .hero-promise-box {
-    padding: 0.65rem 0.9rem;
-  }
-
-  .hero-promise-text {
-    font-size: 0.9rem;
   }
 
   .credentials-banner {
@@ -2566,14 +2590,19 @@ pre,
   }
 
   .brand-logo-img {
-    height: 32px;
-    max-height: 32px;
-    max-width: 115px;
+    height: 30px;
+    max-height: 30px;
+    max-width: 105px;
   }
 
-  .mobile-toggle,
-  #navCtaContact {
+  .mobile-toggle {
     width: 35px;
     height: 35px;
+  }
+
+  #navCtaContact {
+    height: 35px;
+    padding: 0 0.75rem;
+    font-size: 0.76rem;
   }
 }
