@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Bloquear archivos utilitarios internos de despliegue
+Disallow: /*.bat$
+Disallow: /*.py$
+
+Sitemap: https://silver.com.ve/sitemap.xml
