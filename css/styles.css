@@ -337,39 +337,48 @@ pre,
   transform: scale(1.03);
 }
 
+.nav-center-box {
+  display: flex;
+  align-items: center;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 0.35rem;
   list-style: none;
+  background: rgba(16, 22, 35, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.32rem 0.45rem;
 }
 
 .nav-item a {
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 0.86rem;
+  font-weight: 600;
   color: var(--text-body);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .nav-item a:hover {
   color: #ffffff;
+  background: rgba(59, 130, 246, 0.14);
 }
 
 .nav-item a::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--blue-gradient);
-  transition: width var(--transition-base);
-  border-radius: var(--radius-full);
+  display: none;
 }
 
-.nav-item a:hover::after {
-  width: 100%;
+#navCtaContact {
+  border-radius: var(--radius-md);
+  padding: 0.62rem 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .nav-actions {
@@ -1722,17 +1731,209 @@ pre,
   margin-bottom: 0.45rem;
 }
 
-/* Pie de tarjeta simétrico con un único botón limpio */
+/* Pie de tarjeta simétrico */
 .solution-footer-action {
-  padding: 0.95rem 1.25rem;
+  padding: 0.9rem 1.25rem;
   background: var(--bg-card);
   border-top: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .solution-footer-action .btn {
   width: 100%;
-  padding: 0.68rem 1rem;
-  font-size: 0.86rem;
+  padding: 0.62rem 1rem;
+  font-size: 0.84rem;
+}
+
+.system-expand-trigger {
+  font-size: 0.8rem !important;
+  padding: 0.5rem 0.85rem !important;
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-medium);
+  color: var(--text-title);
+}
+
+.system-expand-trigger:hover {
+  background: rgba(59, 130, 246, 0.14);
+  border-color: var(--blue-vibrant);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   TARJETA ALARGADA HORIZONTALMENTE (MISMA TARJETA EXPANDIDA Y RESUMIDA)
+   ========================================================================== */
+.card-left-core {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.card-horizontal-panel {
+  display: none;
+}
+
+.interactive-showcase-grid.expanded-mode {
+  grid-template-columns: 1fr;
+}
+
+.interactive-system-card.is-expanded-card {
+  display: grid !important;
+  grid-template-columns: 360px 1fr;
+  align-items: stretch;
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-lg), 0 0 32px rgba(0, 0, 0, 0.55);
+}
+
+.interactive-system-card.is-expanded-card .card-left-core {
+  border-right: 1px solid var(--border-subtle);
+}
+
+.interactive-system-card.is-expanded-card .system-expand-trigger {
+  display: none;
+}
+
+.interactive-system-card.is-expanded-card .card-horizontal-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.6rem 1.85rem;
+  background: radial-gradient(circle at 90% 10%, var(--sys-glow, rgba(37, 99, 235, 0.14)) 0%, transparent 65%), #0c111b;
+  animation: horizSlideIn 0.28s ease;
+  min-width: 0;
+}
+
+@keyframes horizSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.horiz-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.horiz-kicker {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--sys-accent, var(--blue-light));
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.horiz-heading {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.btn-close-horiz {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-close-horiz:hover {
+  background: var(--blue-gradient);
+  border-color: transparent;
+}
+
+.horiz-grid-3,
+.horiz-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.horiz-box {
+  background: rgba(16, 22, 35, 0.9);
+  border: 1px solid var(--border-subtle);
+  border-top: 2px solid var(--sys-accent, var(--blue-vibrant));
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hbox-step {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--sys-accent, var(--blue-light));
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.hbox-title {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.horiz-box p {
+  font-size: 0.8rem;
+  color: var(--text-body);
+  line-height: 1.45;
+}
+
+.horiz-box code {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.05rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.74rem;
+}
+
+.horiz-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.h-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  background: rgba(7, 9, 14, 0.85);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-body);
+}
+
+.h-badge strong {
+  color: #ffffff;
 }
 
 /* Badges, Tags y Botones personalizados por Sistema */
@@ -2282,6 +2483,34 @@ pre,
     grid-template-columns: 1fr;
   }
 
+  .interactive-system-card.is-expanded-card {
+    grid-template-columns: 1fr;
+  }
+
+  .interactive-system-card.is-expanded-card .card-left-core {
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .horiz-grid-3,
+  .horiz-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .card-horizontal-panel {
+    padding: 1.25rem 1.15rem !important;
+  }
+
+  .horiz-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-close-horiz {
+    width: 100%;
+    justify-content: center;
+  }
+
   .credentials-banner {
     grid-template-columns: 1fr;
   }
@@ -2342,14 +2571,15 @@ pre,
   }
 
   #navCtaContact {
-    padding: 0.52rem 1rem;
-    font-size: 0.84rem;
+    height: 38px;
+    padding: 0 0.95rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    gap: 0.42rem;
-    border-radius: var(--radius-full);
+    gap: 0.4rem;
+    border-radius: var(--radius-md);
     background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #1d4ed8 100%);
     border: 1px solid rgba(147, 197, 253, 0.55);
-    box-shadow: 0 0 18px rgba(59, 130, 246, 0.55), 0 4px 12px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.5), 0 4px 10px rgba(37, 99, 235, 0.35);
     animation: mobileCtaGlow 2.4s ease-in-out infinite;
     white-space: nowrap;
   }
@@ -2534,14 +2764,14 @@ pre,
     max-width: 120px;
   }
 
-  /* En celulares resaltamos el botón Contáctanos con su texto completo e iluminación */
+  /* En celulares resaltamos el botón Contáctanos cuadrado/estructurado alineado con el menú */
   #navCtaContact {
     width: auto;
     height: 38px;
-    padding: 0 0.95rem;
+    padding: 0 0.9rem;
     justify-content: center;
-    border-radius: var(--radius-full);
-    font-size: 0.82rem;
+    border-radius: var(--radius-md);
+    font-size: 0.81rem;
     font-weight: 700;
     letter-spacing: 0.01em;
   }
