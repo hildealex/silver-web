@@ -121,7 +121,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Hoja de Estilos -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=2026.3">
 </head>
 <body>
 
@@ -134,22 +134,24 @@
         <img src="assets/images/logo.png" alt="Logotipo Oficial SILVER Soluciones Tecnológicas" class="brand-logo-img" id="navBrandLogo" width="180" height="52" fetchpriority="high" decoding="async">
       </a>
 
-      <nav aria-label="Navegación principal">
+      <nav aria-label="Navegación principal" class="nav-center-box">
         <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="#hero" id="navLinkInicio">Inicio</a></li>
           <li class="nav-item"><a href="#quienes-somos" id="navLinkQuienes">Quiénes Somos</a></li>
           <li class="nav-item"><a href="#que-hacemos" id="navLinkQue">Qué Hacemos</a></li>
-          <li class="nav-item"><a href="#como-lo-hacemos" id="navLinkComo">Cómo lo Hacemos</a></li>
-          <li class="nav-item"><a href="#soluciones" id="navLinkSoluciones">Soluciones</a></li>
+          <li class="nav-item"><a href="#como-lo-hacemos" id="navLinkComo">Metodología</a></li>
+          <li class="nav-item"><a href="#credenciales" id="navLinkCasos">Casos Reales</a></li>
+          <li class="nav-item"><a href="#soluciones" id="navLinkSoluciones">Sistemas</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
         <a href="#contacto" class="btn btn-blue" id="navCtaContact" aria-label="Ir a sección de Contacto">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <span class="nav-cta-text">Contáctanos</span>
         </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú de navegación">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
@@ -563,388 +565,359 @@
           </div>
         </div>
 
-        <!-- Grilla de 3 Fichas Interactivas Compactas y Simétricas -->
+        <!-- Grilla de 3 Fichas Interactivas (Se alarga horizontalmente al elegir 1 sistema) -->
         <div class="solutions-grid interactive-showcase-grid" id="interactiveSystemsGrid">
           
           <!-- ================================================================
-               SISTEMA 1: AXIOMA ERP
+               SISTEMA 1: AXIOMA ERP (Se alarga horizontalmente al seleccionarlo)
                ================================================================ -->
           <article class="solution-card interactive-system-card theme-axioma" id="solutionAxioma" data-system="axioma">
-            <div class="interactive-stage" data-stage="axioma">
-              <div class="stage-topbar">
-                <span class="stage-env-tag">💻 DESKTOP LOCAL • 100% OFFLINE</span>
-                <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">Tour</span>
-                </button>
-              </div>
-              <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
-
-              <!-- Logo Unificado -->
-              <div class="system-logo-showcase logo-box-axioma" id="logoSlotAxioma">
-                <img src="assets/images/logo-axioma.png" alt="Logotipo Oficial AXIOMA ERP" class="system-logo-img" width="220" height="76" loading="lazy" decoding="async">
-              </div>
-
-              <!-- Encabezado Compacto Fijo -->
-              <div class="card-compact-header">
-                <div class="solution-title-row">
-                  <h3 class="solution-title">AXIOMA ERP</h3>
-                  <span class="solution-category badge-cat-axioma">Comercios &amp; PYMES</span>
+            <div class="card-left-core">
+              <div class="interactive-stage" data-stage="axioma">
+                <div class="stage-topbar">
+                  <span class="stage-env-tag">💻 DESKTOP LOCAL • 100% OFFLINE</span>
+                  <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
+                    <span class="play-icon">▶</span>
+                    <span class="play-label">Tour</span>
+                  </button>
                 </div>
-                <p class="card-one-liner">
-                  Automatiza facturación bimoneda (<code>$/Bs</code>), inventario y ganancias reales sin internet.
-                </p>
-              </div>
+                <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
 
-              <!-- Pestañas Interactivas -->
-              <div class="stage-chapters" role="tablist" aria-label="Capítulos de AXIOMA ERP">
-                <button class="chapter-btn active" data-target-scene="reto" type="button">
-                  <span class="chapter-num">01</span> Problema
-                </button>
-                <button class="chapter-btn" data-target-scene="funciones" type="button">
-                  <span class="chapter-num">02</span> Funciones
-                </button>
-                <button class="chapter-btn" data-target-scene="resultado" type="button">
-                  <span class="chapter-num">03</span> Beneficio
-                </button>
-              </div>
+                <div class="system-logo-showcase logo-box-axioma" id="logoSlotAxioma">
+                  <img src="assets/images/logo-axioma.png" alt="Logotipo Oficial AXIOMA ERP" class="system-logo-img" width="220" height="76" loading="lazy" decoding="async">
+                </div>
 
-              <!-- Escenas de Altura Exacta (Cero Saturación) -->
-              <div class="stage-scenes">
-                <div class="stage-scene active" data-scene="reto">
-                  <h4 class="scene-headline">Fin al descontrol en Excel y errores de tasa</h4>
-                  <p class="scene-text">
-                    Elimina pérdidas por cambios de tasa <code>$/Bs</code>, mercancía agotada sin aviso y descuadres de caja al cerrar turno.
+                <div class="card-compact-header">
+                  <div class="solution-title-row">
+                    <h3 class="solution-title">AXIOMA ERP</h3>
+                    <span class="solution-category badge-cat-axioma">Comercios &amp; PYMES</span>
+                  </div>
+                  <p class="card-one-liner">
+                    Automatiza facturación bimoneda (<code>$/Bs</code>), inventario y ganancias reales sin internet.
                   </p>
                 </div>
 
-                <div class="stage-scene" data-scene="funciones">
-                  <ul class="scene-feature-pills">
-                    <li>🛒 <strong>POS Bimoneda:</strong> Tickets 58/80mm con tasa fija.</li>
-                    <li>📦 <strong>Inventario:</strong> SKU automático y alerta de stock.</li>
-                    <li>🔒 <strong>Cierre de Turno:</strong> Cuadre $/Bs y ganancia en PDF.</li>
-                  </ul>
+                <div class="stage-chapters" role="tablist" aria-label="Capítulos de AXIOMA ERP">
+                  <button class="chapter-btn active" data-target-scene="reto" type="button">
+                    <span class="chapter-num">01</span> Problema
+                  </button>
+                  <button class="chapter-btn" data-target-scene="funciones" type="button">
+                    <span class="chapter-num">02</span> Funciones
+                  </button>
+                  <button class="chapter-btn" data-target-scene="resultado" type="button">
+                    <span class="chapter-num">03</span> Beneficio
+                  </button>
                 </div>
 
-                <div class="stage-scene" data-scene="resultado">
-                  <div class="scene-metric-highlight">Cuadre en &lt; 1 min • Cero Mensualidades</div>
-                  <p class="scene-text">
-                    Facturas en segundos y conoces tu ganancia neta diaria al instante, operando 100% local sin depender de internet.
-                  </p>
+                <div class="stage-scenes">
+                  <div class="stage-scene active" data-scene="reto">
+                    <h4 class="scene-headline">Fin al descontrol en Excel y errores de tasa</h4>
+                    <p class="scene-text">
+                      Elimina pérdidas por cambios de tasa <code>$/Bs</code>, mercancía agotada sin aviso y descuadres de caja al cerrar turno.
+                    </p>
+                  </div>
+
+                  <div class="stage-scene" data-scene="funciones">
+                    <ul class="scene-feature-pills">
+                      <li>🛒 <strong>POS Bimoneda:</strong> Tickets 58/80mm con tasa fija.</li>
+                      <li>📦 <strong>Inventario:</strong> SKU automático y alerta de stock.</li>
+                      <li>🔒 <strong>Cierre de Turno:</strong> Cuadre $/Bs y ganancia en PDF.</li>
+                    </ul>
+                  </div>
+
+                  <div class="stage-scene" data-scene="resultado">
+                    <div class="scene-metric-highlight">Cuadre en &lt; 1 min • Cero Mensualidades</div>
+                    <p class="scene-text">
+                      Facturas en segundos y conoces tu ganancia neta diaria al instante, operando 100% local sin depender de internet.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="solution-footer-action">
+                <button class="btn btn-outline system-expand-trigger" data-expand-system="axioma" type="button">
+                  <span>Ampliar Información</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <button class="btn btn-axioma system-quote-trigger" data-system-name="AXIOMA ERP" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  Solicitar AXIOMA ERP
+                </button>
               </div>
             </div>
 
-            <div class="solution-footer-action">
-              <button class="btn btn-outline system-expand-trigger" data-expand-system="axioma" type="button">
-                <span>Ver Ficha Completa</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <button class="btn btn-axioma system-quote-trigger" data-system-name="AXIOMA ERP" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                Solicitar AXIOMA ERP
-              </button>
+            <!-- Extensión Horizontal Interna (Misma Tarjeta Alargada, Resumida y Cuadrada) -->
+            <div class="card-horizontal-panel">
+              <div class="horiz-top-row">
+                <div>
+                  <span class="horiz-kicker">RESUMEN AMPLIADO • SISTEMA DE ESCRITORIO</span>
+                  <h4 class="horiz-heading">Control total de caja e inventario sin depender de internet</h4>
+                </div>
+                <button class="btn-close-horiz" type="button" data-back-all>
+                  <span>← Ver los 3 Sistemas</span>
+                </button>
+              </div>
+
+              <div class="horiz-grid-4">
+                <div class="horiz-box">
+                  <span class="hbox-title">🛒 Facturación Bimoneda</span>
+                  <p>Cobro mixto ($, Bs, Pago Móvil, Punto y Zelle) con cálculo automático de tasa y vuelto.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">📦 Inventario Inteligente</span>
+                  <p>Creación de SKU, control de costos, margen de ganancia real y alerta de stock mínimo.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">🔒 Arqueo y Cierre Diario</span>
+                  <p>Cuadre de turno en menos de 1 minuto con reporte de ganancias exportable a PDF/Excel.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">🛡️ Roles y Respaldo Local</span>
+                  <p>Accesos separados para Cajero y Administrador con base de datos local blindada.</p>
+                </div>
+              </div>
+
+              <div class="horiz-badges-row">
+                <span class="h-badge">⚡ <strong>Operación:</strong> 100% Offline</span>
+                <span class="h-badge">🖨️ <strong>Equipos:</strong> Impresoras 58/80mm y Lector USB</span>
+                <span class="h-badge">💎 <strong>Licencia:</strong> Pago Único (Sin mensualidades)</span>
+              </div>
             </div>
           </article>
 
           <!-- ================================================================
-               SISTEMA 2: UMAMI
+               SISTEMA 2: UMAMI (Se alarga horizontalmente al seleccionarlo)
                ================================================================ -->
           <article class="solution-card interactive-system-card theme-umami" id="solutionUmami" data-system="umami">
-            <div class="interactive-stage" data-stage="umami">
-              <div class="stage-topbar">
-                <span class="stage-env-tag">📡 RED LOCAL (LAN) • WEBSOCKETS</span>
-                <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">Tour</span>
-                </button>
-              </div>
-              <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
-
-              <!-- Logo Unificado -->
-              <div class="system-logo-showcase logo-box-umami" id="logoSlotUmami">
-                <img src="assets/images/logo-umami.png" alt="Logotipo Oficial UMAMI Tecnología Gastronómica" class="system-logo-img logo-light-card" width="220" height="76" loading="lazy" decoding="async">
-              </div>
-
-              <!-- Encabezado Compacto Fijo -->
-              <div class="card-compact-header">
-                <div class="solution-title-row">
-                  <h3 class="solution-title">UMAMI</h3>
-                  <span class="solution-category badge-cat-umami">Restaurantes &amp; KDS</span>
+            <div class="card-left-core">
+              <div class="interactive-stage" data-stage="umami">
+                <div class="stage-topbar">
+                  <span class="stage-env-tag">📡 RED LOCAL (LAN) • WEBSOCKETS</span>
+                  <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
+                    <span class="play-icon">▶</span>
+                    <span class="play-label">Tour</span>
+                  </button>
                 </div>
-                <p class="card-one-liner">
-                  Conecta meseras, cocina (KDS) y caja en tiempo real por red local sin depender de internet.
-                </p>
-              </div>
+                <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
 
-              <!-- Pestañas Interactivas -->
-              <div class="stage-chapters" role="tablist" aria-label="Capítulos de UMAMI">
-                <button class="chapter-btn active" data-target-scene="reto" type="button">
-                  <span class="chapter-num">01</span> Problema
-                </button>
-                <button class="chapter-btn" data-target-scene="funciones" type="button">
-                  <span class="chapter-num">02</span> Funciones
-                </button>
-                <button class="chapter-btn" data-target-scene="resultado" type="button">
-                  <span class="chapter-num">03</span> Beneficio
-                </button>
-              </div>
+                <div class="system-logo-showcase logo-box-umami" id="logoSlotUmami">
+                  <img src="assets/images/logo-umami.png" alt="Logotipo Oficial UMAMI Tecnología Gastronómica" class="system-logo-img logo-light-card" width="220" height="76" loading="lazy" decoding="async">
+                </div>
 
-              <!-- Escenas de Altura Exacta -->
-              <div class="stage-scenes">
-                <div class="stage-scene active" data-scene="reto">
-                  <h4 class="scene-headline">Adiós a comandas de papel y gritos a cocina</h4>
-                  <p class="scene-text">
-                    Elimina pedidos perdidos o mal anotados, viajes innecesarios al salón y la demora en saber cuándo sale cada plato.
+                <div class="card-compact-header">
+                  <div class="solution-title-row">
+                    <h3 class="solution-title">UMAMI</h3>
+                    <span class="solution-category badge-cat-umami">Restaurantes &amp; KDS</span>
+                  </div>
+                  <p class="card-one-liner">
+                    Conecta meseras, cocina (KDS) y caja en tiempo real por red local sin depender de internet.
                   </p>
                 </div>
 
-                <div class="stage-scene" data-scene="funciones">
-                  <ul class="scene-feature-pills">
-                    <li>📱 <strong>POS Móvil:</strong> Comandas y aviso de plato listo.</li>
-                    <li>🍳 <strong>Pantalla KDS:</strong> Monitor en cocina en tiempo real.</li>
-                    <li>📊 <strong>Panel Admin:</strong> Menú en vivo, ventas y top platos.</li>
-                  </ul>
+                <div class="stage-chapters" role="tablist" aria-label="Capítulos de UMAMI">
+                  <button class="chapter-btn active" data-target-scene="reto" type="button">
+                    <span class="chapter-num">01</span> Problema
+                  </button>
+                  <button class="chapter-btn" data-target-scene="funciones" type="button">
+                    <span class="chapter-num">02</span> Funciones
+                  </button>
+                  <button class="chapter-btn" data-target-scene="resultado" type="button">
+                    <span class="chapter-num">03</span> Beneficio
+                  </button>
                 </div>
 
-                <div class="stage-scene" data-scene="resultado">
-                  <div class="scene-metric-highlight">Mayor Rotación de Mesas • 100% LAN</div>
-                  <p class="scene-text">
-                    Despacho rápido sin errores entre salón y cocina y control total de caja, sin costos de nube ni caídas de internet.
-                  </p>
+                <div class="stage-scenes">
+                  <div class="stage-scene active" data-scene="reto">
+                    <h4 class="scene-headline">Adiós a comandas de papel y gritos a cocina</h4>
+                    <p class="scene-text">
+                      Elimina pedidos perdidos o mal anotados, viajes innecesarios al salón y la demora en saber cuándo sale cada plato.
+                    </p>
+                  </div>
+
+                  <div class="stage-scene" data-scene="funciones">
+                    <ul class="scene-feature-pills">
+                      <li>📱 <strong>POS Móvil:</strong> Comandas y aviso de plato listo.</li>
+                      <li>🍳 <strong>Pantalla KDS:</strong> Monitor en cocina en tiempo real.</li>
+                      <li>📊 <strong>Panel Admin:</strong> Menú en vivo, ventas y top platos.</li>
+                    </ul>
+                  </div>
+
+                  <div class="stage-scene" data-scene="resultado">
+                    <div class="scene-metric-highlight">Mayor Rotación de Mesas • 100% LAN</div>
+                    <p class="scene-text">
+                      Despacho rápido sin errores entre salón y cocina y control total de caja, sin costos de nube ni caídas de internet.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="solution-footer-action">
+                <button class="btn btn-outline system-expand-trigger" data-expand-system="umami" type="button">
+                  <span>Ampliar Información</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <button class="btn btn-umami system-quote-trigger" data-system-name="UMAMI (Tecnología Gastronómica)" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  Solicitar UMAMI
+                </button>
               </div>
             </div>
 
-            <div class="solution-footer-action">
-              <button class="btn btn-outline system-expand-trigger" data-expand-system="umami" type="button">
-                <span>Ver Ficha Completa</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <button class="btn btn-umami system-quote-trigger" data-system-name="UMAMI (Tecnología Gastronómica)" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                Solicitar UMAMI
-              </button>
+            <!-- Extensión Horizontal Interna (Misma Tarjeta Alargada, Resumida y Cuadrada) -->
+            <div class="card-horizontal-panel">
+              <div class="horiz-top-row">
+                <div>
+                  <span class="horiz-kicker">RESUMEN AMPLIADO • GASTRONOMÍA EN RED LOCAL</span>
+                  <h4 class="horiz-heading">Sincronización instantánea entre salón, cocina y caja por Wi-Fi</h4>
+                </div>
+                <button class="btn-close-horiz" type="button" data-back-all>
+                  <span>← Ver los 3 Sistemas</span>
+                </button>
+              </div>
+
+              <div class="horiz-grid-4">
+                <div class="horiz-box">
+                  <span class="hbox-title">📱 Comandera en Celular</span>
+                  <p>Toma de pedidos por mesa desde el teléfono del mesonero con notas para cocina.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">🍳 Monitor KDS en Cocina</span>
+                  <p>Pantalla con alerta sonora, cronómetro de preparación y aviso de plato listo al salón.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">💵 Pre-Cuentas y Caja</span>
+                  <p>División de cuentas por mesa, cobro bimoneda ($/Bs) y cierre exacto por turno.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">📊 Menú y Stock en Vivo</span>
+                  <p>Bloqueo inmediato de platos agotados y estadísticas de los productos más vendidos.</p>
+                </div>
+              </div>
+
+              <div class="horiz-badges-row">
+                <span class="h-badge">📡 <strong>Conexión:</strong> Wi-Fi Local (Sin Internet)</span>
+                <span class="h-badge">📱 <strong>Equipos:</strong> Celulares, Tablets, PC y TV</span>
+                <span class="h-badge">⚡ <strong>Respuesta:</strong> Tiempo Real (&lt; 50ms)</span>
+              </div>
             </div>
           </article>
 
           <!-- ================================================================
-               SISTEMA 3: ÑamGo
+               SISTEMA 3: ÑamGo (Se alarga horizontalmente al seleccionarlo)
                ================================================================ -->
           <article class="solution-card interactive-system-card theme-namgo" id="solutionNamgo" data-system="namgo">
-            <div class="interactive-stage" data-stage="namgo">
-              <div class="stage-topbar">
-                <span class="stage-env-tag">🌐 DIRECTORIO WEB • WHATSAPP</span>
-                <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
-                  <span class="play-icon">▶</span>
-                  <span class="play-label">Tour</span>
-                </button>
-              </div>
-              <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
-
-              <!-- Logo Unificado -->
-              <div class="system-logo-showcase logo-box-namgo" id="logoSlotNamgo">
-                <img src="assets/images/logo-namgo.jpg" alt="Logotipo Oficial ÑamGo" class="system-logo-img logo-light-card" width="220" height="76" loading="lazy" decoding="async">
-              </div>
-
-              <!-- Encabezado Compacto Fijo -->
-              <div class="card-compact-header">
-                <div class="solution-title-row">
-                  <h3 class="solution-title">ÑamGo</h3>
-                  <span class="solution-category badge-cat-namgo">Directorio Delivery</span>
+            <div class="card-left-core">
+              <div class="interactive-stage" data-stage="namgo">
+                <div class="stage-topbar">
+                  <span class="stage-env-tag">🌐 DIRECTORIO WEB • WHATSAPP</span>
+                  <button class="stage-autoplay-btn" type="button" title="Recorrido automático">
+                    <span class="play-icon">▶</span>
+                    <span class="play-label">Tour</span>
+                  </button>
                 </div>
-                <p class="card-one-liner">
-                  Directorio web donde el cliente arma su pedido y lo envía al WhatsApp del restaurante sin comisiones.
-                </p>
-              </div>
+                <div class="stage-progress-track"><div class="stage-progress-bar"></div></div>
 
-              <!-- Pestañas Interactivas -->
-              <div class="stage-chapters" role="tablist" aria-label="Capítulos de ÑamGo">
-                <button class="chapter-btn active" data-target-scene="reto" type="button">
-                  <span class="chapter-num">01</span> Problema
-                </button>
-                <button class="chapter-btn" data-target-scene="funciones" type="button">
-                  <span class="chapter-num">02</span> Funciones
-                </button>
-                <button class="chapter-btn" data-target-scene="resultado" type="button">
-                  <span class="chapter-num">03</span> Beneficio
-                </button>
-              </div>
+                <div class="system-logo-showcase logo-box-namgo" id="logoSlotNamgo">
+                  <img src="assets/images/logo-namgo.jpg" alt="Logotipo Oficial ÑamGo" class="system-logo-img logo-light-card" width="220" height="76" loading="lazy" decoding="async">
+                </div>
 
-              <!-- Escenas de Altura Exacta -->
-              <div class="stage-scenes">
-                <div class="stage-scene active" data-scene="reto">
-                  <h4 class="scene-headline">Vender online sin comisiones ni registros</h4>
-                  <p class="scene-text">
-                    Evita las altas comisiones de apps de delivery tradicionales y permite al comensal pedir rápido sin crear cuentas.
+                <div class="card-compact-header">
+                  <div class="solution-title-row">
+                    <h3 class="solution-title">ÑamGo</h3>
+                    <span class="solution-category badge-cat-namgo">Directorio Delivery</span>
+                  </div>
+                  <p class="card-one-liner">
+                    Directorio web donde el cliente arma su pedido y lo envía al WhatsApp del restaurante sin comisiones.
                   </p>
                 </div>
 
-                <div class="stage-scene" data-scene="funciones">
-                  <ul class="scene-feature-pills">
-                    <li>🏪 <strong>Vitrina Propia:</strong> Menú digital, marca y horario.</li>
-                    <li>🛍️ <strong>Carrito por Local:</strong> Pedido único por restaurante.</li>
-                    <li>💬 <strong>Pedido WhatsApp:</strong> Envía orden y dirección en 1 clic.</li>
-                  </ul>
+                <div class="stage-chapters" role="tablist" aria-label="Capítulos de ÑamGo">
+                  <button class="chapter-btn active" data-target-scene="reto" type="button">
+                    <span class="chapter-num">01</span> Problema
+                  </button>
+                  <button class="chapter-btn" data-target-scene="funciones" type="button">
+                    <span class="chapter-num">02</span> Funciones
+                  </button>
+                  <button class="chapter-btn" data-target-scene="resultado" type="button">
+                    <span class="chapter-num">03</span> Beneficio
+                  </button>
                 </div>
 
-                <div class="stage-scene" data-scene="resultado">
-                  <div class="scene-metric-highlight">0% Comisiones • Pedido en Segundos</div>
-                  <p class="scene-text">
-                    El cliente pide desde WhatsApp sin descargar apps ni meter tarjetas, y el restaurante recibe el 100% de su venta.
-                  </p>
+                <div class="stage-scenes">
+                  <div class="stage-scene active" data-scene="reto">
+                    <h4 class="scene-headline">Vender online sin comisiones ni registros</h4>
+                    <p class="scene-text">
+                      Evita las altas comisiones de apps de delivery tradicionales y permite al comensal pedir rápido sin crear cuentas.
+                    </p>
+                  </div>
+
+                  <div class="stage-scene" data-scene="funciones">
+                    <ul class="scene-feature-pills">
+                      <li>🏪 <strong>Vitrina Propia:</strong> Menú digital, marca y horario.</li>
+                      <li>🛍️ <strong>Carrito por Local:</strong> Pedido único por restaurante.</li>
+                      <li>💬 <strong>Pedido WhatsApp:</strong> Envía orden y dirección en 1 clic.</li>
+                    </ul>
+                  </div>
+
+                  <div class="stage-scene" data-scene="resultado">
+                    <div class="scene-metric-highlight">0% Comisiones • Pedido en Segundos</div>
+                    <p class="scene-text">
+                      El cliente pide desde WhatsApp sin descargar apps ni meter tarjetas, y el restaurante recibe el 100% de su venta.
+                    </p>
+                  </div>
                 </div>
+              </div>
+
+              <div class="solution-footer-action">
+                <button class="btn btn-outline system-expand-trigger" data-expand-system="namgo" type="button">
+                  <span>Ampliar Información</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+                <button class="btn btn-namgo system-quote-trigger" data-system-name="ÑamGo (Directorio Gastronómico Web)" type="button">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  Solicitar ÑamGo
+                </button>
               </div>
             </div>
 
-            <div class="solution-footer-action">
-              <button class="btn btn-outline system-expand-trigger" data-expand-system="namgo" type="button">
-                <span>Ver Ficha Completa</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-              <button class="btn btn-namgo system-quote-trigger" data-system-name="ÑamGo (Directorio Gastronómico Web)" type="button">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                Solicitar ÑamGo
-              </button>
+            <!-- Extensión Horizontal Interna (Misma Tarjeta Alargada, Resumida y Cuadrada) -->
+            <div class="card-horizontal-panel">
+              <div class="horiz-top-row">
+                <div>
+                  <span class="horiz-kicker">RESUMEN AMPLIADO • CATÁLOGO WEB &amp; WHATSAPP</span>
+                  <h4 class="horiz-heading">Tu menú digital interactivo con pedidos listos directo al WhatsApp</h4>
+                </div>
+                <button class="btn-close-horiz" type="button" data-back-all>
+                  <span>← Ver los 3 Sistemas</span>
+                </button>
+              </div>
+
+              <div class="horiz-grid-4">
+                <div class="horiz-box">
+                  <span class="hbox-title">🏪 Vitrina Digital Propia</span>
+                  <p>Perfil con tu logo, horario abierto/cerrado, fotos de platos y precios actualizados.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">🛍️ Carrito sin Registro</span>
+                  <p>El cliente arma su pedido con extras desde su celular sin descargar apps ni crear cuentas.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">💬 Orden Lista en WhatsApp</span>
+                  <p>Envía el resumen exacto con productos, dirección, delivery/pick-up y método de pago.</p>
+                </div>
+                <div class="horiz-box">
+                  <span class="hbox-title">🚀 100% de tu Venta</span>
+                  <p>Cero comisiones por pedido: el cliente te paga directamente a las cuentas de tu local.</p>
+                </div>
+              </div>
+
+              <div class="horiz-badges-row">
+                <span class="h-badge">🌐 <strong>Acceso:</strong> Web Móvil / Código QR</span>
+                <span class="h-badge">💰 <strong>Comisión:</strong> 0% por Pedido</span>
+                <span class="h-badge">📲 <strong>Ideal para:</strong> Link de Instagram y WhatsApp</span>
+              </div>
             </div>
           </article>
-
-          <!-- ================================================================
-               BANDA DESPLEGABLE DE INFORMACIÓN COMPLETA (PANEL DERECHO)
-               Se activa al seleccionar AXIOMA ERP, UMAMI o ÑamGo
-               ================================================================ -->
-          <aside class="system-expanded-band" id="systemExpandedBand" aria-live="polite">
-            
-            <!-- Ficha Desarrollada 1: AXIOMA ERP -->
-            <div class="expanded-detail-view theme-axioma" data-detail-for="axioma">
-              <div class="expanded-header">
-                <div class="expanded-header-left">
-                  <span class="expanded-tag">FICHA TÉCNICA COMPLETA • DESKTOP ERP</span>
-                  <h3 class="expanded-title">AXIOMA ERP — Sistema Administrativo &amp; Punto de Venta Bimoneda</h3>
-                </div>
-                <button class="btn-back-all" type="button" data-back-all>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-                  <span>Volver a Todos</span>
-                </button>
-              </div>
-
-              <p class="expanded-overview">
-                <strong>AXIOMA ERP</strong> es una solución de escritorio de alto rendimiento diseñada para comercios, distribuidoras, ferreterías, minimarkets y PYMES que requieren control milimétrico de su inventario y facturación bimoneda (<code>USD / Bs</code>) sin depender de conexión a internet ni pagar mensualidades en la nube.
-              </p>
-
-              <div class="expanded-modules-grid">
-                <div class="expanded-module-card">
-                  <div class="mod-head">🛒 <strong>Punto de Venta (POS) Bimoneda Rápido</strong></div>
-                  <p>Facturación ágil con lector de código de barras, búsqueda predictiva, cálculo automático a tasa del día y pagos mixtos (Efectivo $, Bs, Pago Móvil, Punto de Venta y Zelle).</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">📦 <strong>Control de Inventario y Kardex</strong></div>
-                  <p>Generación automática de códigos SKU, control de costos de reposición, márgenes de ganancia reales por producto y alertas visuales de stock mínimo.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">🔒 <strong>Cierre de Turno y Arqueo de Caja</strong></div>
-                  <p>Cuadre ciego o asistido por cajero con desglose exacto por método de pago, control de vueltas entregadas y exportación de reportes financieros en PDF/Excel.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">🛡️ <strong>Seguridad por Roles y Base Local</strong></div>
-                  <p>Permisos diferenciados para Administrador, Supervisor y Cajero. Base de datos SQLite/PostgreSQL local blindada con respaldos automáticos programados.</p>
-                </div>
-              </div>
-
-              <div class="expanded-specs-strip">
-                <div class="spec-pill"><span>Modalidad:</span> <strong>100% Local (Offline)</strong></div>
-                <div class="spec-pill"><span>Hardware:</span> <strong>Impresoras Térmicas 58/80mm &amp; Escáneres USB</strong></div>
-                <div class="spec-pill"><span>Licencia:</span> <strong>Pago Único (Cero Mensualidades)</strong></div>
-              </div>
-            </div>
-
-            <!-- Ficha Desarrollada 2: UMAMI -->
-            <div class="expanded-detail-view theme-umami" data-detail-for="umami">
-              <div class="expanded-header">
-                <div class="expanded-header-left">
-                  <span class="expanded-tag">FICHA TÉCNICA COMPLETA • GASTRONOMÍA LAN</span>
-                  <h3 class="expanded-title">UMAMI — Sistema Gastronómico en Tiempo Real (POS + KDS Cocina)</h3>
-                </div>
-                <button class="btn-back-all" type="button" data-back-all>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-                  <span>Volver a Todos</span>
-                </button>
-              </div>
-
-              <p class="expanded-overview">
-                <strong>UMAMI</strong> sincroniza al instante el salón de mesas, la cocina y la caja principal mediante red local (Wi-Fi LAN) con tecnología de WebSockets. Los mesoneros toman el pedido desde su teléfono o tablet y la orden aparece en el monitor de cocina en milisegundos, incluso si se cae el servicio de internet externo.
-              </p>
-
-              <div class="expanded-modules-grid">
-                <div class="expanded-module-card">
-                  <div class="mod-head">📱 <strong>Comandera Móvil para Mesoneros</strong></div>
-                  <p>Interfaz táctil rápida desde cualquier celular o tablet conectada al Wi-Fi del local: mapa de mesas, notas de preparación ("sin cebolla", "término medio") y división de cuentas.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">🍳 <strong>Pantalla Interactiva de Cocina (KDS)</strong></div>
-                  <p>Monitor en cocina con cronómetro por comanda, alerta sonora de nuevos pedidos y botón de "Plato Listo" que notifica inmediatamente al teléfono del mesonero.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">💵 <strong>Caja Central y Pre-Cuentas Bimoneda</strong></div>
-                  <p>Control de mesas abiertas, emisión de estados de cuenta en dólares y bolívares, cobro multimoneda y cierre diario de ventas por turno y por mesonero.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">📊 <strong>Panel Gerencial y Menú en Vivo</strong></div>
-                  <p>Activa o desactiva platos agotados en tiempo real para que no se vendan por error, visualiza los productos más vendidos y audita tiempos de despacho de cocina.</p>
-                </div>
-              </div>
-
-              <div class="expanded-specs-strip">
-                <div class="spec-pill"><span>Red:</span> <strong>Wi-Fi Local (Funciona sin Internet)</strong></div>
-                <div class="spec-pill"><span>Dispositivos:</span> <strong>Celulares, Tablets, PC de Caja y Smart TV/Monitor</strong></div>
-                <div class="spec-pill"><span>Sincronización:</span> <strong>WebSockets en Tiempo Real (&lt; 50ms)</strong></div>
-              </div>
-            </div>
-
-            <!-- Ficha Desarrollada 3: ÑamGo -->
-            <div class="expanded-detail-view theme-namgo" data-detail-for="namgo">
-              <div class="expanded-header">
-                <div class="expanded-header-left">
-                  <span class="expanded-tag">FICHA TÉCNICA COMPLETA • E-COMMERCE GASTRONÓMICO</span>
-                  <h3 class="expanded-title">ÑamGo — Directorio Web de Menús Digitales &amp; Pedidos por WhatsApp</h3>
-                </div>
-                <button class="btn-back-all" type="button" data-back-all>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-                  <span>Volver a Todos</span>
-                </button>
-              </div>
-
-              <p class="expanded-overview">
-                <strong>ÑamGo</strong> es una plataforma web ultrarrápida donde restaurantes, cafés y negocios de comida exponen su menú digital interactivo. El cliente explora los platos, personaliza extras, arma su carrito y envía el pedido estructurado directo al WhatsApp del local sin pagar comisiones por venta ni obligar al usuario a registrarse.
-              </p>
-
-              <div class="expanded-modules-grid">
-                <div class="expanded-module-card">
-                  <div class="mod-head">🏪 <strong>Vitrina Digital Exclusiva por Local</strong></div>
-                  <p>Cada negocio cuenta con su perfil personalizado con logotipo, banner, estado de horario (Abierto/Cerrado), categorías de platos con fotos y precios actualizados.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">🛍️ <strong>Carrito Inteligente sin Registros</strong></div>
-                  <p>El comensal selecciona platos, contornos y bebidas en segundos desde su navegador móvil sin descargar aplicaciones pesadas ni crear contraseñas.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">💬 <strong>Despacho Estructurado a WhatsApp</strong></div>
-                  <p>Genera automáticamente la comanda detallada con productos, cantidades, modalidad (Delivery o Pick-up), dirección y método de pago lista para atender en WhatsApp.</p>
-                </div>
-                <div class="expanded-module-card">
-                  <div class="mod-head">🚀 <strong>0% Comisiones sobre tus Ventas</strong></div>
-                  <p>A diferencia de las apps de delivery tradicionales que retienen hasta un 30% por pedido, en ÑamGo el restaurante recibe el 100% del pago directo del cliente.</p>
-                </div>
-              </div>
-
-              <div class="expanded-specs-strip">
-                <div class="spec-pill"><span>Plataforma:</span> <strong>Web App Móvil &amp; Desktop (100% Cloud)</strong></div>
-                <div class="spec-pill"><span>Comisiones:</span> <strong>0% por Pedido</strong></div>
-                <div class="spec-pill"><span>Integración:</span> <strong>Enlace Directo para Instagram Bio, QR y WhatsApp</strong></div>
-              </div>
-            </div>
-
-          </aside>
 
         </div>
 
@@ -1102,6 +1075,6 @@
   </footer>
 
   <!-- Scripts Principales -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2026.3"></script>
 </body>
 </html>
