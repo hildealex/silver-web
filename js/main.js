@@ -6,57 +6,20 @@
  * ==========================================================================
  */
 
-// Configuración centralizada editable para el usuario
+// Configuración centralizada oficial de SILVER Soluciones Tecnológicas
 const SILVER_CONFIG = {
-  // Contactos oficiales
-  contacts: {
-    hildemar: {
-      name: "Ing. Hildemar Govea",
-      role: "Ingeniería & Software",
-      phoneDisplay: "0412-7856282",
-      whatsappNumber: "584127856282",
-      email: "hildemargovea6@gmail.com"
-    },
-    socio: {
-      name: "Javier Barrios",
-      role: "Infraestructura, Redes & Soporte",
-      phoneDisplay: "0424-6205933",
-      whatsappNumber: "584246205933",
-      email: "jabg500@gmail.com"
-    }
+  company: {
+    name: "SILVER Soluciones Tecnológicas",
+    phoneDisplay: "+58 414-6886719",
+    whatsappNumber: "584146886719",
+    email: "silver2026ca@gmail.com"
   },
 
-  linkedin: "https://www.linkedin.com",
-  
-  // Control de funcionalidad de descargas:
-  // Como solicitó el usuario, las descargas quedan sin funcionalidad para ser habilitadas
-  // cuando tenga listos los demás paquetes.
-  downloadsEnabled: false,
-
-  // Diccionario de paquetes para cuando el usuario decida activarlos
-  downloadPackages: {
-    axioma: {
-      name: "Axioma_ERP_Demo.zip",
-      fileUrl: "assets/downloads/Axioma_ERP_Demo_v1.0.zip",
-      driveOrGithubUrl: "", // Pega aquí tu enlace de Google Drive o GitHub Release
-      version: "Próxima versión"
-    },
-    myrmidon: {
-      name: "Project_Myrmidon.zip",
-      fileUrl: "assets/downloads/Project_Myrmidon_Demo_v1.0.zip",
-      driveOrGithubUrl: "",
-      version: "Próxima versión"
-    },
-    infrastructure: {
-      name: "ZeroTrust_Suite.zip",
-      fileUrl: "assets/downloads/Axioma_ERP_Demo_v1.0.zip",
-      driveOrGithubUrl: "",
-      version: "Próxima versión"
-    }
-  }
+  downloadsEnabled: false
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+  initCodeProtection();
   initNavbar();
   initDemosFilter();
   initInteractiveSystemStages();
@@ -64,6 +27,50 @@ document.addEventListener("DOMContentLoaded", () => {
   initWhatsAppGenerator();
   initSmoothScroll();
 });
+
+/* --------------------------------------------------------------------------
+   0. PROTECCIÓN DE CÓDIGO FUENTE Y BLOQUEO DE INSPECCIÓN
+   -------------------------------------------------------------------------- */
+function initCodeProtection() {
+  // Bloquear clic derecho (menú contextual / Inspeccionar)
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
+
+  // Bloquear atajos de teclado de DevTools y Ver Código Fuente
+  document.addEventListener("keydown", (e) => {
+    const key = (e.key || "").toUpperCase();
+    const ctrlOrCmd = e.ctrlKey || e.metaKey;
+
+    // F12
+    if (e.key === "F12" || e.keyCode === 123) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
+    // Ctrl+Shift+I (Inspector), Ctrl+Shift+J (Consola), Ctrl+Shift+C (Selector), Ctrl+Shift+K
+    if (ctrlOrCmd && e.shiftKey && ["I", "J", "C", "K"].includes(key)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+
+    // Ctrl+U (Ver código fuente) o Ctrl+S (Guardar página)
+    if (ctrlOrCmd && ["U", "S"].includes(key)) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  });
+
+  // Evitar arrastrar imágenes o logotipos
+  document.addEventListener("dragstart", (e) => {
+    if (e.target && e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. NAVBAR & NAVEGACIÓN MÓVIL
@@ -96,140 +103,82 @@ function initNavbar() {
 }
 
 /* --------------------------------------------------------------------------
-   2. FILTRO INTERACTIVO DE SISTEMAS (UMAMI, ÑANGO, AXIOMA)
+   2. FILTRO INTERACTIVO Y TARJETA ALARGADA HORIZONTALMENTE (AXIOMA, UMAMI, ÑAMGO)
    -------------------------------------------------------------------------- */
 function initDemosFilter() {
   const filterButtons = document.querySelectorAll(".demo-filter-btn");
   const systemCards = document.querySelectorAll(".interactive-system-card");
-  const groups = document.querySelectorAll(".demo-group-container");
+  const showcaseGrid = document.getElementById("interactiveSystemsGrid");
+  const expandTriggers = document.querySelectorAll(".system-expand-trigger");
+  const backAllBtns = document.querySelectorAll("[data-back-all]");
 
-  if (!filterButtons.length) return;
+  if (!filterButtons.length || !showcaseGrid) return;
+
+  function applySystemFilter(selectedFilter) {
+    // 1. Actualizar estado activo en los botones de filtro superiores
+    filterButtons.forEach(b => {
+      const isMatch = b.getAttribute("data-filter") === selectedFilter;
+      b.classList.toggle("active", isMatch);
+      b.setAttribute("aria-selected", isMatch ? "true" : "false");
+    });
+
+    // 2. Alternar entre Vista de 3 Columnas ("all") y Vista de Tarjeta Alargada Horizontal
+    const isExpanded = selectedFilter !== "all";
+    showcaseGrid.classList.toggle("expanded-mode", isExpanded);
+
+    // 3. Mostrar las 3 tarjetas compactas o alargar horizontalmente la tarjeta elegida
+    systemCards.forEach(card => {
+      const sysKey = card.getAttribute("data-system");
+      if (selectedFilter === "all") {
+        card.classList.remove("is-expanded-card");
+        card.style.display = "flex";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      } else if (selectedFilter === sysKey) {
+        card.classList.add("is-expanded-card");
+        card.style.display = "grid";
+        card.style.opacity = "1";
+        card.style.transform = "translateY(0)";
+      } else {
+        card.classList.remove("is-expanded-card");
+        card.style.display = "none";
+      }
+    });
+  }
 
   filterButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const selectedFilter = btn.getAttribute("data-filter");
+      const selectedFilter = btn.getAttribute("data-filter") || "all";
+      applySystemFilter(selectedFilter);
+    });
+  });
 
-      // Actualizar estado activo en botones
-      filterButtons.forEach(b => {
-        b.classList.remove("active");
-        b.setAttribute("aria-selected", "false");
-      });
-      btn.classList.add("active");
-      btn.setAttribute("aria-selected", "true");
-
-      // Filtrado directo de Fichas Interactivas por Sistema
-      if (systemCards.length) {
-        systemCards.forEach(card => {
-          const sysKey = card.getAttribute("data-system");
-          if (selectedFilter === "all" || selectedFilter === sysKey) {
-            card.style.display = "flex";
-            requestAnimationFrame(() => {
-              card.style.opacity = "1";
-              card.style.transform = "translateY(0)";
-            });
-          } else {
-            card.style.opacity = "0";
-            card.style.transform = "translateY(10px)";
-            setTimeout(() => {
-              const currentFilter = document.querySelector(".demo-filter-btn.active")?.getAttribute("data-filter");
-              if (currentFilter !== "all" && currentFilter !== sysKey) {
-                card.style.display = "none";
-              }
-            }, 220);
-          }
-        });
+  // Botón "Ampliar Información" dentro de cada tarjeta
+  expandTriggers.forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      const targetSys = trigger.getAttribute("data-expand-system");
+      if (targetSys) {
+        applySystemFilter(targetSys);
       }
+    });
+  });
 
-      // Compatibilidad con subsecciones si se agregan en el futuro
-      groups.forEach(group => {
-        const groupType = group.getAttribute("data-group");
-        if (selectedFilter === "all" || selectedFilter === groupType) {
-          group.style.display = "block";
-        } else {
-          group.style.display = "none";
-        }
-      });
+  // Botón "← Ver los 3 Sistemas" dentro de la tarjeta alargada
+  backAllBtns.forEach(backBtn => {
+    backBtn.addEventListener("click", () => {
+      applySystemFilter("all");
     });
   });
 }
 
 /* --------------------------------------------------------------------------
-   2.B REPRODUCTOR DE CAPÍTULOS EN FICHAS INTERACTIVAS & COTIZACIÓN DIRECTA
+   2.B COTIZACIÓN DIRECTA DE PRODUCTOS HACIA EL GENERADOR DE WHATSAPP
    -------------------------------------------------------------------------- */
 function initInteractiveSystemStages() {
-  const stages = document.querySelectorAll(".interactive-stage");
-  const sceneOrder = ["reto", "funciones", "resultado"];
-
-  stages.forEach(stage => {
-    const chapterBtns = Array.from(stage.querySelectorAll(".chapter-btn"));
-    const scenes = Array.from(stage.querySelectorAll(".stage-scene"));
-    const progressBar = stage.querySelector(".stage-progress-bar");
-    const autoplayBtn = stage.querySelector(".stage-autoplay-btn");
-    let autoplayTimer = null;
-    let currentIndex = 0;
-
-    function activateSceneByIndex(index) {
-      currentIndex = index % sceneOrder.length;
-      const targetScene = sceneOrder[currentIndex];
-
-      chapterBtns.forEach(b => {
-        b.classList.toggle("active", b.getAttribute("data-target-scene") === targetScene);
-      });
-
-      scenes.forEach(scene => {
-        scene.classList.toggle("active", scene.getAttribute("data-scene") === targetScene);
-      });
-
-      if (progressBar) {
-        progressBar.style.width = `${((currentIndex + 1) / sceneOrder.length) * 100}%`;
-      }
-    }
-
-    function stopAutoplay() {
-      if (autoplayTimer) {
-        clearInterval(autoplayTimer);
-        autoplayTimer = null;
-      }
-      if (autoplayBtn) {
-        autoplayBtn.classList.remove("playing");
-        const icon = autoplayBtn.querySelector(".play-icon");
-        const label = autoplayBtn.querySelector(".play-label");
-        if (icon) icon.textContent = "▶";
-        if (label) label.textContent = "Tour";
-      }
-    }
-
-    chapterBtns.forEach((btn, idx) => {
-      btn.addEventListener("click", () => {
-        stopAutoplay();
-        activateSceneByIndex(idx);
-      });
-    });
-
-    if (autoplayBtn) {
-      autoplayBtn.addEventListener("click", () => {
-        if (autoplayTimer) {
-          stopAutoplay();
-        } else {
-          autoplayBtn.classList.add("playing");
-          const icon = autoplayBtn.querySelector(".play-icon");
-          const label = autoplayBtn.querySelector(".play-label");
-          if (icon) icon.textContent = "⏸";
-          if (label) label.textContent = "Pausar";
-          activateSceneByIndex((currentIndex + 1) % sceneOrder.length);
-          autoplayTimer = setInterval(() => {
-            activateSceneByIndex((currentIndex + 1) % sceneOrder.length);
-          }, 3800);
-        }
-      });
-    }
-  });
-
-  // Botón de cotización de sistema específico hacia el generador de WhatsApp
   const quoteButtons = document.querySelectorAll(".system-quote-trigger");
   quoteButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      const systemName = btn.getAttribute("data-system-name") || "Sistema a Medida";
+      const systemName = btn.getAttribute("data-system-name") || "Producto SILVER";
       const waServiceSelect = document.getElementById("waServiceSelect");
       const waCustomMessage = document.getElementById("waCustomMessage");
       const contactBox = document.querySelector(".contact-box") || document.getElementById("contacto");
@@ -238,7 +187,7 @@ function initInteractiveSystemStages() {
         waServiceSelect.value = "software";
       }
       if (waCustomMessage) {
-        waCustomMessage.value = `Me interesó la ficha interactiva del sistema ${systemName} y deseo cotizar una solución o implementación para mi negocio.`;
+        waCustomMessage.value = `Me interesa el producto ${systemName} y deseo recibir información y cotización para mi negocio.`;
       }
 
       if (contactBox) {
@@ -249,7 +198,7 @@ function initInteractiveSystemStages() {
 
       showToast(
         `Consulta preparada: ${systemName}`,
-        "Completa tu nombre o empresa y abre la conversación en WhatsApp."
+        "Completa tu nombre o empresa y envía tu consulta al WhatsApp de SILVER."
       );
     });
   });
@@ -310,11 +259,10 @@ function showToast(title, description) {
 }
 
 /* --------------------------------------------------------------------------
-   4. GENERADOR DIRECTO DE MENSAJE DE WHATSAPP (CON SELECTOR DE DESTINATARIO)
+   4. GENERADOR DIRECTO DE MENSAJE AL WHATSAPP CORPORATIVO DE SILVER
    -------------------------------------------------------------------------- */
 function initWhatsAppGenerator() {
   const waSubmitBtn = document.getElementById("waSubmitBtn");
-  const waRecipientSelect = document.getElementById("waRecipientSelect");
   const waServiceSelect = document.getElementById("waServiceSelect");
   const waClientName = document.getElementById("waClientName");
   const waCustomMessage = document.getElementById("waCustomMessage");
@@ -323,9 +271,6 @@ function initWhatsAppGenerator() {
 
   waSubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-
-    const recipientKey = waRecipientSelect ? waRecipientSelect.value : "hildemar";
-    const selectedContact = SILVER_CONFIG.contacts[recipientKey] || SILVER_CONFIG.contacts.hildemar;
 
     const serviceMap = {
       software: "Desarrollo de Software a Medida / ERP",
@@ -342,16 +287,15 @@ function initWhatsAppGenerator() {
     const customMsg = waCustomMessage && waCustomMessage.value.trim() ? waCustomMessage.value.trim() : "Deseo recibir más detalles y coordinar una reunión técnica.";
 
     const fullMessage = 
-      `Hola ${selectedContact.name} (SILVER),\n\n` +
+      `Hola equipo de *${SILVER_CONFIG.company.name}*,\n\n` +
       `Mi nombre / empresa es: *${clientName}*.\n` +
       `Estoy interesado en el área de: *${serviceName}*.\n\n` +
       `*Consulta o requerimiento:* \n${customMsg}\n\n` +
-      `Quedo atento a su respuesta para optimizar nuestros sistemas.`;
+      `Quedo atento a su respuesta.`;
 
     const encodedMessage = encodeURIComponent(fullMessage);
-    const targetUrl = `https://wa.me/${selectedContact.whatsappNumber}?text=${encodedMessage}`;
+    const targetUrl = `https://wa.me/${SILVER_CONFIG.company.whatsappNumber}?text=${encodedMessage}`;
 
-    // Abrir WhatsApp en una nueva pestaña
     window.open(targetUrl, "_blank");
   });
 }
